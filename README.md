@@ -26,10 +26,11 @@ Visit the deployed application: [https://amazing-rolypoly-a7ceb6.netlify.app](ht
 
 ### AI Agent (Python Backend)
 - **Python 3.8+** - Core programming language
-- **OpenAI API** - Advanced language model integration
+- **Hugging Face Inference API** - Free LLM integration using DialoGPT-medium model
 - **Asyncio** - Asynchronous programming for better performance
 - **Dataclasses** - Clean data structure management
 - **JSON** - Structured data handling
+- **Fallback Logic** - Rule-based responses when LLM is unavailable
 
 ## 📁 Project Structure
 
@@ -54,7 +55,7 @@ career-counselor-ai/
 
 - Node.js 16+ and npm
 - Python 3.8+ (for AI agent)
-- OpenAI API key (optional, has fallback mode)
+- Hugging Face account (optional, has fallback mode)
 
 ### Frontend Setup
 
@@ -83,14 +84,13 @@ The frontend includes a mock agent for demonstration. To use the full Python AI 
 
 1. **Install Python dependencies**
    ```bash
-   pip install openai python-dotenv requests asyncio
+   pip install python-dotenv requests asyncio
    ```
 
-2. **Set up environment variables**
+2. **Set up environment variables (optional)**
    Create a `.env` file:
    ```env
-   OPENAI_API_KEY=your_openai_api_key_here
-   HUGGINGFACE_TOKEN=your_hf_token_here  # Optional
+   HUGGINGFACE_TOKEN=your_hf_token_here  # Optional for higher rate limits
    ```
 
 3. **Run the Python agent**
@@ -159,6 +159,12 @@ The application is automatically deployed to Netlify. For manual deployment:
 
 ## 🤖 AI Agent Features
 
+### LLM Integration
+- **Primary**: Hugging Face Inference API with DialoGPT-medium model
+- **Fallback**: Rule-based responses when API is unavailable
+- **Rate Limiting**: Built-in request throttling for API compliance
+- **Error Handling**: Graceful degradation to ensure conversation continues
+
 ### Conversation States
 - **Greeting**: Initial welcome and explanation
 - **Gathering Info**: Collecting student information through questions
@@ -186,6 +192,8 @@ The application is automatically deployed to Netlify. For manual deployment:
 - **Assessment Tools**: Add personality and skills assessments
 - **Resource Library**: Include links to educational programs and career resources
 - **Multi-language Support**: Expand accessibility to non-English speakers
+- **Advanced LLM Integration**: Upgrade to more powerful language models
+- **Real-time Collaboration**: Allow counselors to join conversations
 
 ## 🤝 Contributing
 
@@ -201,7 +209,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🙏 Acknowledgments
 
-- OpenAI for providing advanced language model capabilities
+- Hugging Face for providing free access to language models
 - The React and TypeScript communities for excellent tooling
 - Tailwind CSS for making beautiful designs accessible
 - Lucide for providing beautiful, consistent icons
